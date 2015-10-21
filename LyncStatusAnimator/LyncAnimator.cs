@@ -23,7 +23,7 @@ namespace LyncStatusAnimator
 
             _normalAnimations = new[]
             {
-                Waves(),
+                Wave(),
                 BoomBox(),
                 Fish(),
                 Singing(),
@@ -126,7 +126,7 @@ namespace LyncStatusAnimator
         {
             //   ( '_')0*´¯`·.¸.·´¯`°Q('_' )
 
-            var animation = new[]
+            return new[]
             {
                 "( '_')0*            Q('_' )",
                 "( '_')0 ´           Q('_' )",
@@ -142,11 +142,9 @@ namespace LyncStatusAnimator
                 "( '_')0           ` Q('_' )",
                 "( '_')0            °Q('_' )",
             };
-
-            return animation;
         }
 
-        private static IEnumerable<string> Waves()
+        private static IEnumerable<string> Wave()
         {
             string wave = "°º¤ø,¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸,ø¤º°`°º¤ø,¸,ø¤º°`°º¤ø,¸,ø¤º°`°º¤ø,¸";
             return wave.Window(25).Select(x => new string(x.ToArray())).ToArray();
@@ -158,7 +156,7 @@ namespace LyncStatusAnimator
             var paddedMsg = windowSizeInSpaces + msg + windowSizeInSpaces;
 
             var numSlidingWindows = windowSize + msg.Length + 1;
-
+            
             var scrollingNotes = new List<string>();
             for (int i = 0; i < numSlidingWindows; i++)
             {
